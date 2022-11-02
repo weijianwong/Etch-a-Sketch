@@ -1,11 +1,10 @@
 .grid {
     border:2px black solid;
-    padding:0;
-    flex:1;
-    margin: 50px;
-    max-width:960px;
-    /* display:flex;
-    flex-direction: column; */
+    width: 400px;
+    height:400px;
+    margin-top: 50px;
+    font-size: 0;
+
 }
 body {
     display: flex;
@@ -14,3 +13,6 @@ body {
     justify-content: center;
 }
 
+.cell {
+    display: inline-block;
+}

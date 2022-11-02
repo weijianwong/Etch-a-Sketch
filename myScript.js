@@ -1,9 +1,9 @@
 // create n x n grid of divs using javascipt
-
+let container = document.querySelector('.grid');
 
 function createGrid(n){
-    let container = document.createElement('div');
-    container.classList.add('grid');
+    // let container = document.createElement('div');
+    // container.classList.add('grid');
     if (n > 100){
         alert('Please choose a number below 100');
         return;
@@ -12,14 +12,17 @@ function createGrid(n){
 
         for(let j=0;j<n;j++){
             let div = document.createElement('div');
-            div.style.display = 'inline-block';
-            div.textContent='.'
+            div.classList.add('cell');
+            div.style.height = 400/n + 'px';
+            div.style.width =400/n + 'px';
             container.appendChild(div);
             div.addEventListener('mouseover', function () {
                 div.style.backgroundColor = 'black';
             })
         }
         let lineBreak = document.createElement('br');
+        lineBreak.style.content ='';
+        lineBreak.style.margin = 0;
         container.appendChild(lineBreak);
     
     }
@@ -34,10 +37,10 @@ let number;
 let button = document.querySelector('.button');
 button.addEventListener('click', () => {
     // Check if the document already has a grid, if it does remove it
-    if (document.body.contains(document.querySelector('.grid'))) {
-        document.body.removeChild(document.querySelector('.grid'));
-    };
-    number = prompt('Choose a value of n. This will create a grid of n x n size');
+    if(container.contains(document.querySelector('.cell'))){
+        container.innerHTML = '';
+    }
+    number = prompt('Resolution');
     createGrid(number);
 })
 
