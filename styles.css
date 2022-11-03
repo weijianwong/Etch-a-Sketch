@@ -2,17 +2,24 @@
     border:2px black solid;
     width: 400px;
     height:400px;
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 0;
 
 }
-body {
+body{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
-
 .cell {
     display: inline-block;
+}
+.colors{
+    display:flex;
+    flex-direction: row;
+    margin-top: 20px;
+    width:400px;
+    justify-content: space-around;
+    flex:1;
 }

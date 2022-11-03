@@ -1,10 +1,11 @@
 // create n x n grid of divs using javascipt
 let container = document.querySelector('.grid');
 
+
 function createGrid(n){
     // let container = document.createElement('div');
     // container.classList.add('grid');
-    if (n > 100){
+    if (n > 100 || n <0|| isNaN(n)){
         alert('Please choose a number below 100');
         return;
     }
@@ -16,13 +17,11 @@ function createGrid(n){
             div.style.height = 400/n + 'px';
             div.style.width =400/n + 'px';
             container.appendChild(div);
-            div.addEventListener('mouseover', function () {
-                div.style.backgroundColor = 'black';
-            })
+            // div.addEventListener('mouseover', function () {
+            //     div.style.backgroundColor = 'black';
+            // })
         }
         let lineBreak = document.createElement('br');
-        lineBreak.style.content ='';
-        lineBreak.style.margin = 0;
         container.appendChild(lineBreak);
     
     }
@@ -40,8 +39,25 @@ button.addEventListener('click', () => {
     if(container.contains(document.querySelector('.cell'))){
         container.innerHTML = '';
     }
-    number = prompt('Resolution');
+    let number = prompt('Please choose a number between 0 and 100')
     createGrid(number);
 })
 
-
+let blackBtn = document.querySelector('.black');
+let cellList = document.getElementsByClassName('cell');
+blackBtn.addEventListener('click', () =>{
+    for(let i = 0; i<cellList.length;i++){
+        cellList[i].addEventListener('mouseover', function () {
+            cellList[i].style.backgroundColor = 'black';
+        })
+    }
+})
+let randomBtn = document.querySelector('.random');
+randomBtn.addEventListener('click', function () {
+    for(let i = 0; i<cellList.length;i++){
+        cellList[i].addEventListener('mouseover', function () {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            cellList[i].style.backgroundColor = '#' + randomColor;
+        })
+    }
+})
